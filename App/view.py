@@ -37,8 +37,13 @@ operación solicitada
 def printMenu():
     print("Bienvenido")
     print("1- Cargar información en el catálogo")
-    print("2- ")
-
+    print("2- Listar cronológicamente los artistas")
+    print("3- Listar cronológicamente las adquisiciones")
+    print("4- Clasificar las obras de un artista por técnica")
+    print("5- Clasificar las obras por la nacionalidad de sus creadores")
+    print("6- Transportar obras de un departamento")
+    print("7- Proponer una nueva exposición en el museo")
+    print("8- Salir del Menu")
 catalog = None
 
 """
@@ -51,8 +56,32 @@ while True:
         print("Cargando información de los archivos ....")
 
     elif int(inputs[0]) == 2:
-        pass
+        A_I =input ("Ingrese el año inicial")
+        A_FN =input ("Ingrese el año final")
+        print("Lista cronologica de artistas: ")
+
+    elif int(inputs[0]) == 3:
+        F_I =input ("Ingrese la fecha inicial (AAAA-MM-DD")
+        F_FN =input ("Ingrese la fecha final (AAAA-MM-DD)")
+        print("Lista cronologica de adquisiciones: ")
+
+    elif int(inputs[0]) == 4:
+        Name =input ("Ingrese el nombre del artista")
+        print("Obras de un artista por técnica: ")
+
+    elif int(inputs[0]) == 5:
+        print("Obras por la nacionalidad de sus creadores: ")
+
+    elif int(inputs[0]) == 6:
+        DEP= input("Ingrese el departamento a consultar ")
+        print("Costo de transporte: ")
+
+    elif int(inputs[0]) == 7:
+        A_IO= input("Ingrese el año inicial de las obras: ")
+        A_FO= input("Ingrese el año final de las obras: ")
+        Area_D = input("Ingrese el área disponible: ")
+        print("Propuesta de una nueva exposición:  ")
 
     else:
-        sys.exit(0)
-sys.exit(0)
+        sys.exit(8)
+sys.exit(8)
