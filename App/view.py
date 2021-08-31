@@ -56,30 +56,30 @@ while True:
         print("Cargando información de los archivos ....")
 
     elif int(inputs[0]) == 2:
-        A_I =input ("Ingrese el año inicial")
-        A_FN =input ("Ingrese el año final")
+        A_IN =input ("Ingrese el año inicial: ")
+        A_FN =input ("Ingrese el año final: ")
         print("Lista cronologica de artistas: ")
 
     elif int(inputs[0]) == 3:
-        F_I =input ("Ingrese la fecha inicial (AAAA-MM-DD")
-        F_FN =input ("Ingrese la fecha final (AAAA-MM-DD)")
+        F_IN =input ("Ingrese la fecha inicial (AAAA-MM-DD): ")
+        F_FN =input ("Ingrese la fecha final (AAAA-MM-DD): ")
         print("Lista cronologica de adquisiciones: ")
 
     elif int(inputs[0]) == 4:
-        Name =input ("Ingrese el nombre del artista")
+        Name =input ("Ingrese el nombre del artista: ")
         print("Obras de un artista por técnica: ")
 
     elif int(inputs[0]) == 5:
         print("Obras por la nacionalidad de sus creadores: ")
 
     elif int(inputs[0]) == 6:
-        DEP= input("Ingrese el departamento a consultar ")
+        DEP =input("Ingrese el departamento a consultar: ")
         print("Costo de transporte: ")
 
     elif int(inputs[0]) == 7:
-        A_IO= input("Ingrese el año inicial de las obras: ")
-        A_FO= input("Ingrese el año final de las obras: ")
-        Area_D = input("Ingrese el área disponible: ")
+        A_IO =input("Ingrese el año inicial de las obras: ")
+        A_FO =input("Ingrese el año final de las obras: ")
+        Area_D =input("Ingrese el área disponible: ")
         print("Propuesta de una nueva exposición:  ")
 
     else:

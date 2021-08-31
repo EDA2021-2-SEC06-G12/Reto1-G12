@@ -33,6 +33,19 @@ El controlador se encarga de mediar entre la vista y el modelo.
 
 # Funciones para la carga de datos
 
+
+def loadArtists (catalog):
+    artistsfile = cf.data_dir + 'MoMA/Artists-utf8-small.csv'
+    input_file = csv.DictReader(open(artistsfile,encoding='utf-8'))
+    for artist in input_file:
+        model.addArtist(catalog, artist)
+
+def loadArtworks (catalog):
+    artworksfile = cf.data_dir + 'MoMA/Artworks-utf8-small.csv'
+    input_file = csv.DictReader(open(artworksfile,encoding='utf-8'))
+    for artworks in input_file:
+        model.addArtworks(catalog, artworks)
+
 # Funciones de ordenamiento
 
 # Funciones de consulta sobre el catálogo
