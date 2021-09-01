@@ -61,10 +61,10 @@ def addArtworks (catalog, artworks):
                     artworks['artworks_Date'], artworks['artworks_Medium'], artworks['artworks_Dimensions'],
                     artworks['artworks_CreditLine'], artworks['artworks_AccessionNumber'], artworks['artworks_Classification'],
                     artworks['artworks_Department'], artworks['artworks_DateAcquired'], artworks['artworks_Cataloged'],
-                    artworks['artworks_URL'], artworks['artworks_Circumference (cm)'], artworks['artworks_Depth (cm)'],
-                    artworks['artworks_Diameter (cm)'], artworks['artworks_Height (cm)'], artworks['artworks_Length (cm)'],
-                    artworks['artworks_Weight (kg)'], artworks['artworks_Width (cm)'], artworks['artworks_Seat Height (cm)'],
-                    artworks['artworks_Duration (sec.)'])
+                    artworks['artworks_URL'], artworks['artworks_Circumference'], artworks['artworks_Depth'],
+                    artworks['artworks_Diameter'], artworks['artworks_Height'], artworks['artworks_Length'],
+                    artworks['artworks_Weight'], artworks['artworks_Width'], artworks['artworks_Seat Height'],
+                    artworks['artworks_Duration'])
     lt.addLast(catalog['artworks'], artw)			
 
 # Funciones para creacion de datos
