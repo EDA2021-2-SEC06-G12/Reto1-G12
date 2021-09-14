@@ -61,7 +61,7 @@ while True:
     inputs = input('Seleccione una opción para continuar\n')
     if int(inputs[0]) == 1:
         print("Cargando información de los archivos ....")
-        catalog = initCatalog ()
+        catalog = initCatalog()
         loadData(catalog)
         print('Artistas cargados: ' + str(lt.size(catalog['artist'])))
         print('Obras de arte cargadas: ' + str(lt.size(catalog['artworks'])))
