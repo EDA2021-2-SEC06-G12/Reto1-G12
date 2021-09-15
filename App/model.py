@@ -48,15 +48,7 @@ def newCatalog(Tipo_Arreglo):
     catalog['artworks'] = lt.newList(Tipo_Arreglo)
 
     return catalog
-id
-Name
-Bio
-Nacionality
-Gender
-BeginDate
-EndDate
-WikiQID
-ULAN
+
 # Funciones para agregar informacion al catalogo
 
 def addArtist (catalog, artist):
