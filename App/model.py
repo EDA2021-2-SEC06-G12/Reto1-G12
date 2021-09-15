@@ -124,5 +124,10 @@ def newArtwork(ObjectID, Title, ConstituentID, Date, Medium, Dimensions, CreditL
 # Funciones de consulta
 
 # Funciones utilizadas para comparar elementos dentro de una lista
-
+def cmpArtwork(artwork1, artwork2):
+    if artwork1["DateAcquired"] < artwork2["DateAcquired"]:
+        r= True
+    else:
+        r=False 
+    return r
 # Funciones de ordenamiento
