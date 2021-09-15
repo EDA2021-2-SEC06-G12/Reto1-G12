@@ -25,6 +25,8 @@
  """
 
 
+from typing import BinaryIO
+from App.view import Name
 import config as cf
 from DISClib.ADT import list as lt
 from DISClib.Algorithms.Sorting import shellsort as sa
@@ -37,23 +39,31 @@ los mismos.
 
 # Construccion de modelos
 
-def newCatalog():
+def newCatalog(Tipo_Arreglo):
 
     catalog = {'artist': None,
                'artworks': None,}
 
-    catalog['artist'] = lt.newList('ARRAY_LIST')
-    catalog['artworks'] = lt.newList('ARRAY_LIST')
+    catalog['artist'] = lt.newList(Tipo_Arreglo)
+    catalog['artworks'] = lt.newList(Tipo_Arreglo)
 
     return catalog
-
+id
+Name
+Bio
+Nacionality
+Gender
+BeginDate
+EndDate
+WikiQID
+ULAN
 # Funciones para agregar informacion al catalogo
 
 def addArtist (catalog, artist):
-    art = newArtist(artist['artist_Id'], artist['artist_Name'],
-                    artist['artist_Bio'], artist['artist_Nacionality'],
-                    artist['artist_Gender'], artist['artist_BeginDate'],
-                    artist['artist_EndDate'], artist['artist_WikiQID'], artist['artist_ULAN'])
+    art = newArtist(artist['ConstituentID'], artist['DisplayName'],
+                    artist['ArtistBio'], artist['Nationality'],
+                    artist['Gender'], artist['BeginDate'],
+                    artist['EndDate'], artist['WikiQID'], artist['ULAN'])
     lt.addLast(catalog['artist'], art)
 
 def addArtworks (catalog, artworks):
@@ -69,19 +79,19 @@ def addArtworks (catalog, artworks):
 
 # Funciones para creacion de datos
 
-def newArtist(Id, Name, Bio, Nacionality, Gender, BeginDate, EndDate, WikiQID, ULAN):
-    artist = {'Id': '', 'Name': '', 'Bio': '',
+def newArtist(ConstituentID, DisplayName, ArtistBio, Nacionality, Gender, BeginDate, EndDate, WikiQID, ULAN):
+    artist = {'ConstituentID': '', 'DisplayName': '', 'ArtistBio': '',
             'Nacionality': '', 'Gender': '', 'BeginDate': '',
             'EndDate': '', 'WikiQID': '', 'ULAN': ''}
-    artist['artist_Id'] = Id
-    artist['artist_Name'] = Name
-    artist['artist_Bio'] = Bio
-    artist['artist_Nacionality'] = Nacionality
-    artist['artist_Gender'] = Gender
-    artist['artist_BeginDate'] = BeginDate
-    artist['artist_EndDate'] = EndDate
-    artist['artist_WikiQID'] = WikiQID
-    artist['artist_ULAN'] = ULAN
+    artist['ConstituentID'] = ConstituentID
+    artist['DisplayName'] = DisplayName
+    artist['ArtistBio'] = ArtistBio
+    artist['Nacionality'] = Nacionality
+    artist['Gender'] = Gender
+    artist['BeginDate'] = BeginDate
+    artist['EndDate'] = EndDate
+    artist['WikiQID'] = WikiQID
+    artist['ULAN'] = ULAN
     
     return artist
 
@@ -122,5 +132,12 @@ def newArtwork(ObjectID, Title, ConstituentID, Date, Medium, Dimensions, CreditL
 # Funciones de consulta
 
 # Funciones utilizadas para comparar elementos dentro de una lista
+def cmp_obras(atwork1, atwork2):
+    if atwork1["DateAcquired"] < atwork2["DateAcquired"]:
+        r= True
+    else:
+        r= False
+    return r
+
 
 # Funciones de ordenamiento
