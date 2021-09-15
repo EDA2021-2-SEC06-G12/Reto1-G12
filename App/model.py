@@ -48,34 +48,26 @@ def newCatalog(Tipo_Arreglo):
     catalog['artworks'] = lt.newList(Tipo_Arreglo)
 
     return catalog
-id
-Name
-Bio
-Nacionality
-Gender
-BeginDate
-EndDate
-WikiQID
-ULAN
+
 # Funciones para agregar informacion al catalogo
 
 def addArtist (catalog, artist):
     art = newArtist(artist['ConstituentID'], artist['DisplayName'],
-                    artist['ArtistBio'], artist['Nationality'],
+                    artist['ArtistBio'], artist['Nacionality'],
                     artist['Gender'], artist['BeginDate'],
                     artist['EndDate'], artist['WikiQID'], artist['ULAN'])
     lt.addLast(catalog['artist'], art)
 
 def addArtworks (catalog, artworks):
-    artw = newArtwork(artworks['artworks_ObjectID'], artworks['artworks_Title'], artworks['artworks_ConstituentID'],
-                    artworks['artworks_Date'], artworks['artworks_Medium'], artworks['artworks_Dimensions'],
-                    artworks['artworks_CreditLine'], artworks['artworks_AccessionNumber'], artworks['artworks_Classification'],
-                    artworks['artworks_Department'], artworks['artworks_DateAcquired'], artworks['artworks_Cataloged'],
-                    artworks['artworks_URL'], artworks['artworks_Circumference'], artworks['artworks_Depth'],
-                    artworks['artworks_Diameter'], artworks['artworks_Height'], artworks['artworks_Length'],
-                    artworks['artworks_Weight'], artworks['artworks_Width'], artworks['artworks_Seat Height'],
-                    artworks['artworks_Duration'])
-    lt.addLast(catalog['artworks'], artw)			
+    artw = newArtwork(artworks['ObjectID'], artworks['Title'], artworks['ConstituentID'],
+                    artworks['Date'], artworks['Medium'], artworks['Dimensions'],
+                    artworks['CreditLine'], artworks['AccessionNumber'], artworks['Classification'],
+                    artworks['Department'], artworks['DateAcquired'], artworks['Cataloged'],
+                    artworks['URL'], artworks['Circumference'], artworks['Depth'],
+                    artworks['Diameter'], artworks['Height'], artworks['Length'],
+                    artworks['Weight'], artworks['Width'], artworks['Seat Height'],
+                    artworks['Duration'])
+    lt.addLast(catalog['artworks'], artw)	
 
 # Funciones para creacion de datos
 
@@ -104,40 +96,33 @@ def newArtwork(ObjectID, Title, ConstituentID, Date, Medium, Dimensions, CreditL
                 'Classification': '', 'Department': '', 'DateAcquired': '', 'Cataloged': '',
                 'URL': '', 'Circumference': '', 'Depth': '', 'Diameter': '', 'Height': '',
                 'Length': '', 'Weight': '', 'Width': '', 'SeatHeight': '', 'Duration': ''}
-    artworks['artworks_ObjectID'] = ObjectID
-    artworks['artworks_Title'] = Title
-    artworks['artworks_ConstituentID'] = ConstituentID
-    artworks['artworks_Date'] = Date
-    artworks['artworks_Medium'] = Medium
-    artworks['artworks_Dimensions'] = Dimensions
-    artworks['artworks_CreditLine'] = CreditLine
-    artworks['artworks_AccessionNumber'] = AccessionNumber
-    artworks['artworks_Classification'] = Classification
-    artworks['artworks_Department'] = Department
-    artworks['artworks_DateAcquired'] = DateAcquired
-    artworks['artworks_Cataloged'] = Cataloged
-    artworks['artworks_URL'] = URL
-    artworks['artworks_Circumference'] =  Circumference
-    artworks['artworks_Depth'] = Depth
-    artworks['artworks_Diameter'] = Diameter
-    artworks['artworks_Height'] = Height
-    artworks['artworks_Length'] = Length 
-    artworks['artworks_Weight'] = Weight
-    artworks['artworks_Width'] = Width
-    artworks['artworks_Seat Height'] = SeatHeight
-    artworks['artworks_Duration'] = Duration
+    artworks['ObjectID'] = ObjectID
+    artworks['Title'] = Title
+    artworks['ConstituentID'] = ConstituentID
+    artworks['Date'] = Date
+    artworks['Medium'] = Medium
+    artworks['Dimensions'] = Dimensions
+    artworks['CreditLine'] = CreditLine
+    artworks['AccessionNumber'] = AccessionNumber
+    artworks['Classification'] = Classification
+    artworks['Department'] = Department
+    artworks['DateAcquired'] = DateAcquired
+    artworks['Cataloged'] = Cataloged
+    artworks['URL'] = URL
+    artworks['Circumference'] =  Circumference
+    artworks['Depth'] = Depth
+    artworks['Diameter'] = Diameter
+    artworks['Height'] = Height
+    artworks['Length'] = Length 
+    artworks['Weight'] = Weight
+    artworks['Width'] = Width
+    artworks['Seat Height'] = SeatHeight
+    artworks['Duration'] = Duration
     
     return artworks
 
 # Funciones de consulta
 
 # Funciones utilizadas para comparar elementos dentro de una lista
-def cmp_obras(atwork1, atwork2):
-    if atwork1["DateAcquired"] < atwork2["DateAcquired"]:
-        r= True
-    else:
-        r= False
-    return r
-
 
 # Funciones de ordenamiento
