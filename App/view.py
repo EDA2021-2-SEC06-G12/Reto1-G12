@@ -47,12 +47,6 @@ def printMenu():
     print("8- Salir del Menu")
 catalog = None
 
-def initCatalog():
-    return controller.initCatalog()
-
-def loadData(catalog):
-    controller.loadData(catalog)
-
 """
 Menu principal
 """
@@ -60,11 +54,10 @@ while True:
     printMenu()
     inputs = input('Seleccione una opción para continuar\n')
     if int(inputs[0]) == 1:
-        Tipo_Arreglo=input(" ELIGE LA OPCIÓN ARRAY_LIST - LINKED_LIST")
+        Tipo_Arreglo=input(" ELIGE LA OPCIÓN ARRAY_LIST - LINKED_LIST: ")
         print("Cargando información de los archivos ....")
-        catalog = initCatalog()
-        loadData(catalog)
-
+        controller.initCatalog()
+        controller.loadData("catalog")
     elif int(inputs[0]) == 2:
         A_I =input ("Ingrese el año inicial")
         A_FN =input ("Ingrese el año final")

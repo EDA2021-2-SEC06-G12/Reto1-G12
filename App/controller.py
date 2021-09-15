@@ -22,8 +22,10 @@
 
 import config as cf
 import model
-import csv
 
+import csv
+from DISClib.Utils import error as error
+from DISClib.DataStructures import liststructure as lt
 
 """
 El controlador se encarga de mediar entre la vista y el modelo.
@@ -31,7 +33,7 @@ El controlador se encarga de mediar entre la vista y el modelo.
 
 # Inicialización del Catálogo de libros
 def initCatalog():
-    catalog = model.newCatalog()
+    catalog = model.newCatalog("Tipo_Arreglo")
     return catalog
 
 
@@ -58,5 +60,23 @@ def loadArtworks (catalog):
 
 
 # Funciones de consulta sobre el catálogo
+def subList(lst, pos, numelem):
+    """ Retorna una sublista de la lista lst.
 
+    Se retorna una lista que contiene los elementos a partir de la
+    posicion pos, con una longitud de numelem elementos.
+    Se crea una copia de dichos elementos y se retorna una lista nueva.
+
+    Args:
+        lst: La lista a examinar
+        pos: Posición a partir de la que se desea obtener la sublista
+        numelem: Numero de elementos a copiar en la sublista
+
+    Raises:
+        Exception
+    """
+    try:
+        return lt.subList(lst, pos, numelem)
+    except Exception as exp:
+        error.reraise(exp, 'List->subList: ')
 

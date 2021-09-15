@@ -26,7 +26,7 @@
 
 
 from typing import BinaryIO
-from App.view import Name
+
 import config as cf
 from DISClib.ADT import list as lt
 from DISClib.Algorithms.Sorting import shellsort as sa
@@ -53,7 +53,7 @@ def newCatalog(Tipo_Arreglo):
 
 def addArtist (catalog, artist):
     art = newArtist(artist['ConstituentID'], artist['DisplayName'],
-                    artist['ArtistBio'], artist['Nacionality'],
+                    artist['ArtistBio'], artist['Nationality'],
                     artist['Gender'], artist['BeginDate'],
                     artist['EndDate'], artist['WikiQID'], artist['ULAN'])
     lt.addLast(catalog['artist'], art)
@@ -71,14 +71,14 @@ def addArtworks (catalog, artworks):
 
 # Funciones para creacion de datos
 
-def newArtist(ConstituentID, DisplayName, ArtistBio, Nacionality, Gender, BeginDate, EndDate, WikiQID, ULAN):
+def newArtist(ConstituentID, DisplayName, ArtistBio, Nationality, Gender, BeginDate, EndDate, WikiQID, ULAN):
     artist = {'ConstituentID': '', 'DisplayName': '', 'ArtistBio': '',
             'Nacionality': '', 'Gender': '', 'BeginDate': '',
             'EndDate': '', 'WikiQID': '', 'ULAN': ''}
     artist['ConstituentID'] = ConstituentID
     artist['DisplayName'] = DisplayName
     artist['ArtistBio'] = ArtistBio
-    artist['Nacionality'] = Nacionality
+    artist['Nationality'] = Nationality
     artist['Gender'] = Gender
     artist['BeginDate'] = BeginDate
     artist['EndDate'] = EndDate
