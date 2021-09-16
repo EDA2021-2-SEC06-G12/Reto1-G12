@@ -24,10 +24,14 @@
  * Dario Correal - Version inicial
  """
 
-
+from typing import BinaryIO
 import config as cf
+import time
 from DISClib.ADT import list as lt
 from DISClib.Algorithms.Sorting import shellsort as sa
+from DISClib.Algorithms.Sorting import insertionsort as ins
+from DISClib.Algorithms.Sorting import quicksort as qcks
+from DISClib.Algorithms.Sorting import mergesort as mrgs
 assert cf
 
 """
@@ -122,10 +126,39 @@ def newArtwork(ObjectID, Title, ConstituentID, Date, Medium, Dimensions, CreditL
 # Funciones de consulta
 
 # Funciones utilizadas para comparar elementos dentro de una lista
-def cmpArtwork(artwork1, artwork2):
+def cmpArtworkByDateAcquired(artwork1, artwork2):
     if artwork1["DateAcquired"] < artwork2["DateAcquired"]:
-        r= True
+        r = True
     else:
-        r=False 
+        r = False 
     return r
+
 # Funciones de ordenamiento
+
+def AlgoritmoIterativo (Tipo_Algoritmo, catalog):
+    if Tipo_Algoritmo == 'Insertion':
+        start_time = time.process_time()
+        sorted_list = ins.sort(catalog['artworks'], cmpfunction=cmpArtworkByDateAcquired)
+        stop_time = time.process_time()
+        elapsed_time_mseg = (stop_time - start_time)*1000
+
+    elif Tipo_Algoritmo == 'Shell':
+        start_time = time.process_time()
+        sorted_list = sa.sort(catalog['artworks'], cmpfunction=cmpArtworkByDateAcquired)
+        stop_time = time.process_time()
+        elapsed_time_mseg = (stop_time - start_time)*1000
+
+    elif Tipo_Algoritmo == 'Merge':
+        start_time = time.process_time()
+        sorted_list = mrgs.sort(catalog['artworks'], cmpfunction=cmpArtworkByDateAcquired)
+        stop_time = time.process_time()
+        elapsed_time_mseg = (stop_time - start_time)*1000
+
+    elif Tipo_Algoritmo == 'Quick Sorts':
+        start_time = time.process_time()
+        sorted_list = qcks.sort(catalog['artworks'], cmpfunction=cmpArtworkByDateAcquired)
+        stop_time = time.process_time()
+        elapsed_time_mseg = (stop_time - start_time)*1000
+    
+    return elapsed_time_mseg
+
