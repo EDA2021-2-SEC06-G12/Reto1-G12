@@ -70,4 +70,3 @@ def subList(lst, pos, numelem):
         return lt.subList(lst, pos, numelem)
     except Exception as exp:
         error.reraise(exp, 'List->subList: ')
-

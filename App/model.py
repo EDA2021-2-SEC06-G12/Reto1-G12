@@ -161,4 +161,3 @@ def AlgoritmoIterativo (Tipo_Algoritmo, catalog):
         elapsed_time_mseg = (stop_time - start_time)*1000
     
     return elapsed_time_mseg
-
