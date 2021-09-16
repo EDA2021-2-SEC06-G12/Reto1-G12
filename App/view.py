@@ -45,6 +45,13 @@ def printMenu():
     print("6- Transportar obras de un departamento")
     print("7- Proponer una nueva exposición en el museo")
     print("8- Salir del Menu")
+
+def initCatalog(Tipo_Arreglo):
+    return controller.initCatalog(Tipo_Arreglo)
+
+def loadData(catalog):
+    controller.loadData(catalog)
+
 catalog = None
 
 """
@@ -56,8 +63,11 @@ while True:
     if int(inputs[0]) == 1:
         Tipo_Arreglo=input(" ELIGE LA OPCIÓN ARRAY_LIST - LINKED_LIST: ")
         print("Cargando información de los archivos ....")
-        controller.initCatalog()
-        controller.loadData("catalog")
+        catalog = initCatalog (Tipo_Arreglo)
+        loadData (catalog)
+        print('Artistas cargados: ' + str(lt.size(catalog['artist'])))
+        print('Obras cargadas: ' + str(lt.size(catalog['artworks'])))
+
     elif int(inputs[0]) == 2:
         A_I =input ("Ingrese el año inicial")
         A_FN =input ("Ingrese el año final")

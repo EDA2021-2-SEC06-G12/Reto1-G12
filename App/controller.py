@@ -22,7 +22,6 @@
 
 import config as cf
 import model
-
 import csv
 from DISClib.Utils import error as error
 from DISClib.DataStructures import liststructure as lt
@@ -32,8 +31,8 @@ El controlador se encarga de mediar entre la vista y el modelo.
 """
 
 # Inicialización del Catálogo de libros
-def initCatalog():
-    catalog = model.newCatalog("Tipo_Arreglo")
+def initCatalog(Tipo_Arreglo):
+    catalog = model.newCatalog(Tipo_Arreglo)
     return catalog
 
 
