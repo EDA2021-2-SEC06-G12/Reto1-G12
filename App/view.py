@@ -76,7 +76,7 @@ while True:
     elif int(inputs[0]) == 3:
         A_I = input ("Ingresa el año inicial: ")
         A_FN = input ("Ingresa el año final: ")
-        print("Lista cronologica de artistas: ")
+        print("Lista cronológica de artistas: ")
 
     elif int(inputs[0]) == 4:
         F_I = input ("Ingresa la fecha inicial (AAAA-MM-DD): ")
