@@ -133,6 +133,7 @@ def cmpArtworkByDateAcquired(artwork1, artwork2):
         r = False 
     return r
 
+
 # Funciones de ordenamiento
 
 def AlgoritmoIterativo (Tipo_Algoritmo, catalog):
