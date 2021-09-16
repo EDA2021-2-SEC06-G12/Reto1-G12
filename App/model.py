@@ -63,7 +63,7 @@ def addArtworks (catalog, artworks):
                     artworks['Department'], artworks['DateAcquired'], artworks['Cataloged'],
                     artworks['URL'], artworks['Circumference'], artworks['Depth'],
                     artworks['Diameter'], artworks['Height'], artworks['Length'],
-                    artworks['Weight'], artworks['Width'], artworks['Seat Height'],
+                    artworks['Weight'], artworks['Width'], artworks['SeatHeight'],
                     artworks['Duration'])
     lt.addLast(catalog['artworks'], artw)	
 
@@ -114,7 +114,7 @@ def newArtwork(ObjectID, Title, ConstituentID, Date, Medium, Dimensions, CreditL
     artworks['Length'] = Length 
     artworks['Weight'] = Weight
     artworks['Width'] = Width
-    artworks['Seat Height'] = SeatHeight
+    artworks['SeatHeight'] = SeatHeight
     artworks['Duration'] = Duration
     
     return artworks

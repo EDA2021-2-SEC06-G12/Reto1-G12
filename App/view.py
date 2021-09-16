@@ -61,7 +61,7 @@ while True:
     printMenu()
     inputs = input('Seleccione una opción para continuar\n')
     if int(inputs[0]) == 1:
-        Tipo_Arreglo=input(" ELIGE LA OPCIÓN ARRAY_LIST - LINKED_LIST: ")
+        Tipo_Arreglo=input(" ELIGE LA OPCIÓN ARRAY_LIST ó SINGLE_LINKED: ")
         print("Cargando información de los archivos ....")
         catalog = initCatalog (Tipo_Arreglo)
         loadData (catalog)
