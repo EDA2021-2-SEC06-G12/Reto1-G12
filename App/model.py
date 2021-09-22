@@ -170,9 +170,9 @@ def Buscar_artistas (artistas, catalog):
     nombres = []
     catalog = catalog ['artist']
     for i in artistas:
-        for j in catalog:
+        for j in catalog ['ConstituentID']:
             if i == j:
-                nombres.append(j['DisplayName'])
+                nombres.append(['DisplayName'])
     return nombres
 
 # Funciones de ordenamiento
