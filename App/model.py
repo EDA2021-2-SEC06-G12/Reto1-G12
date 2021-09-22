@@ -168,9 +168,9 @@ def cmpA_I(artist1, artist2):
 
 def Buscar_artistas (artistas, catalog):
     nombres = []
-    catalog = catalog ['artist']
+    catalog_2 = catalog ['artist']
     for i in artistas:
-        for j in catalog ['ConstituentID']:
+        for j in catalog_2 ['ConstituentID']:
             if i == j:
                 nombres.append(['DisplayName'])
     return nombres
