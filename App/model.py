@@ -141,8 +141,9 @@ def listar_artwork_date(F_I, F_FN, catalog):
     for artwork in artwork_list:
         fecha = artwork['DateAcquired']
         if (fecha >= F_I) and (fecha <= F_FN):
+            artistas = artwork['ConstituentID']
             compra = artwork ['CreditLine']
-            datos_artworks = [artwork['Title'], artwork['ConstituentID'], artwork['Date'], artwork['DateAcquired'], artwork['Medium'], artwork['Dimensions']]
+            datos_artworks = [artwork['Title'], Buscar_artistas (artistas, catalog), artwork['Date'], artwork['DateAcquired'], artwork['Medium'], artwork['Dimensions']]
             list_date.append(datos_artworks)
             if 'Purchase' in compra or 'purchase' in compra:
                 contador += 1
@@ -165,6 +166,14 @@ def cmpA_I(artist1, artist2):
         r = False 
     return r
 
+def Buscar_artistas (artistas, catalog):
+    nombres = []
+    catalog = catalog ['artist']
+    for i in artistas:
+        for j in catalog:
+            if i == j:
+                nombres.append(j['DisplayName'])
+    return nombres
 
 # Funciones de ordenamiento
 
