@@ -37,6 +37,7 @@ def initCatalog(Tipo_Arreglo):
     return catalog
 
 
+
 # Funciones para la carga de datos
 
 def loadData (catalog):

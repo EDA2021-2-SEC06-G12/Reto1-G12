@@ -35,7 +35,7 @@ from DISClib.Algorithms.Sorting import mergesort as mrgs
 assert cf
 
 """
-Se define la estructura de un catálogo de videos. El catálogo tendrá dos listas, una para los videos, otra para las categorias de
+Se define la estructura de un catálogo de videos. El catálogo tendrá dos listas, una para los videos, otra para las categorías de
 los mismos.
 """
 
