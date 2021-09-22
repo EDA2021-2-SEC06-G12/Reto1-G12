@@ -124,6 +124,19 @@ def newArtwork(ObjectID, Title, ConstituentID, Date, Medium, Dimensions, CreditL
     return artworks
 
 # Funciones de consulta
+"""
+
+"""
+def listar_artist_date(A_I , A_FN, catalog):
+    list_date= []
+    
+    for artist in ordenamiento_artist_AI(catalog):
+        if ordenamiento_artist_AI(catalog) >= A_I and ordenamiento_artist_AI(catalog) <= A_FN:
+            datos_artist=[artist["DisplayName"],artist["BeginDate"],artist["EndDate"],artist["Nationality"],artist["Gender"]]
+            rta=list_date.append(datos_artist)
+        else:
+            rta=None
+    return rta
 
 # Funciones utilizadas para comparar elementos dentro de una lista
 def cmpArtworkByDateAcquired(artwork1, artwork2):
@@ -132,7 +145,18 @@ def cmpArtworkByDateAcquired(artwork1, artwork2):
     else:
         r = False 
     return r
-
+def cmpA_I(artist1, artist2):
+    if artist1["BeginDate"] < artist2["BeginDate"]:
+        r = True
+    else:
+        r = False 
+    return r
+def cmpA_FN(artist1, artist2):
+    if artist1["EndDate"] < artist2["EndDate"]:
+        r = True
+    else:
+        r = False 
+    return r
 # Funciones de ordenamiento
 
 def AlgoritmoIterativo (Tipo_Algoritmo, catalog):
@@ -162,3 +186,10 @@ def AlgoritmoIterativo (Tipo_Algoritmo, catalog):
     
     return elapsed_time_mseg
 
+def ordenamiento_artist_AI(catalog):
+    sorted_list = mrgs.sort(catalog['artist']["BeginDate"])
+    return sorted_list
+
+def ordenamiento_artist_AFN(catalog):
+    sorted_list = mrgs.sort((catalog['artist']["BeginDate"]))
+    return sorted_list       

@@ -61,6 +61,10 @@ def AlgoritmoIterativo (Tipo_Algoritmo, catalog):
     Algoritmo = model.AlgoritmoIterativo (Tipo_Algoritmo, catalog)
     return Algoritmo
 
+def listar_artist_date(A_I , A_FN, catalog):
+    Algoritmo = model.ordenamiento_artist_AI (catalog)
+    return Algoritmo
+
 
 
 # Funciones de consulta sobre el catálogo

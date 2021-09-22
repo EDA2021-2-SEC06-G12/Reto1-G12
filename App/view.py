@@ -76,8 +76,13 @@ while True:
     elif int(inputs[0]) == 3:
         A_I = input ("Ingresa el año inicial: ")
         A_FN = input ("Ingresa el año final: ")
-        print("Lista cronologica de artistas: ")
-
+        f= controller.listar_artist_date(A_I , A_FN , catalog)
+        print('Artistas cargados: ' + str(lt.size(f)))
+        """
+        print ("Los primeros 3 artistas son: " , f[0][0],f[1][0],f[2][0])
+        print ("Los ultimnos 3 artistas son: " , f[len(f)-1][0],f[len(f)-2][0],f[len(f)-3][0])
+        """
+        print("Lista cronologica de artistas: " , f)
     elif int(inputs[0]) == 4:
         F_I = input ("Ingresa la fecha inicial (AAAA-MM-DD): ")
         F_FN = input ("Ingresa la fecha final (AAAA-MM-DD): ")
