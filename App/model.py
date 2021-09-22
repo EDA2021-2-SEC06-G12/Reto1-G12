@@ -26,11 +26,7 @@
 
 from typing import BinaryIO
 import config as cf
-import time
 from DISClib.ADT import list as lt
-from DISClib.Algorithms.Sorting import shellsort as sa
-from DISClib.Algorithms.Sorting import insertionsort as ins
-from DISClib.Algorithms.Sorting import quicksort as qcks
 from DISClib.Algorithms.Sorting import mergesort as mrgs
 assert cf
 
@@ -41,13 +37,13 @@ los mismos.
 
 # Construccion de modelos
 
-def newCatalog(Tipo_Arreglo):
+def newCatalog():
 
     catalog = {'artist': None,
                'artworks': None,}
 
-    catalog['artist'] = lt.newList(Tipo_Arreglo)
-    catalog['artworks'] = lt.newList(Tipo_Arreglo)
+    catalog['artist'] = lt.newList('ARRAY_LIST')
+    catalog['artworks'] = lt.newList('ARRAY_LIST')
 
     return catalog
 
@@ -124,19 +120,34 @@ def newArtwork(ObjectID, Title, ConstituentID, Date, Medium, Dimensions, CreditL
     return artworks
 
 # Funciones de consulta
-"""
 
-"""
-def listar_artist_date(A_I , A_FN, catalog):
-    list_date= []
+def listar_artist_date(A_I, A_FN, catalog):
+    sorted_list = ordenamiento_artist_AI(catalog)
+    artist_list = sorted_list ['elements']
+    list_date = []
+    for artist in artist_list:
+        fecha = artist['BeginDate']
+        if (fecha >= A_I) and (fecha <= A_FN):
+            datos_artist = [artist['DisplayName'], artist['BeginDate'], artist['EndDate'], artist['Nationality'], artist['Gender']]
+            list_date.append(datos_artist)
     
-    for artist in ordenamiento_artist_AI(catalog):
-        if ordenamiento_artist_AI(catalog) >= A_I and ordenamiento_artist_AI(catalog) <= A_FN:
-            datos_artist=[artist["DisplayName"],artist["BeginDate"],artist["EndDate"],artist["Nationality"],artist["Gender"]]
-            rta=list_date.append(datos_artist)
-        else:
-            rta=None
-    return rta
+    return list_date
+
+def listar_artwork_date(F_I, F_FN, catalog):
+    sorted_list = ordenamiento_artworks(catalog)
+    artwork_list = sorted_list ['elements']
+    contador = 0
+    list_date = []
+    for artwork in artwork_list:
+        fecha = artwork['DateAcquired']
+        if (fecha >= F_I) and (fecha <= F_FN):
+            compra = artwork ['CreditLine']
+            datos_artworks = [artwork['Title'], artwork['ConstituentID'], artwork['Date'], artwork['DateAcquired'], artwork['Medium'], artwork['Dimensions']]
+            list_date.append(datos_artworks)
+            if 'Purchase' in compra or 'purchase' in compra:
+                contador += 1
+    
+    return list_date, contador
 
 # Funciones utilizadas para comparar elementos dentro de una lista
 def cmpArtworkByDateAcquired(artwork1, artwork2):
@@ -145,51 +156,22 @@ def cmpArtworkByDateAcquired(artwork1, artwork2):
     else:
         r = False 
     return r
+
+
 def cmpA_I(artist1, artist2):
     if artist1["BeginDate"] < artist2["BeginDate"]:
         r = True
     else:
         r = False 
     return r
-def cmpA_FN(artist1, artist2):
-    if artist1["EndDate"] < artist2["EndDate"]:
-        r = True
-    else:
-        r = False 
-    return r
+
+
 # Funciones de ordenamiento
 
-def AlgoritmoIterativo (Tipo_Algoritmo, catalog):
-    if Tipo_Algoritmo == 'Insertion':
-        start_time = time.process_time()
-        sorted_list = ins.sort(catalog['artworks'], cmpfunction=cmpArtworkByDateAcquired)
-        stop_time = time.process_time()
-        elapsed_time_mseg = (stop_time - start_time)*1000
-
-    elif Tipo_Algoritmo == 'Shell':
-        start_time = time.process_time()
-        sorted_list = sa.sort(catalog['artworks'], cmpfunction=cmpArtworkByDateAcquired)
-        stop_time = time.process_time()
-        elapsed_time_mseg = (stop_time - start_time)*1000
-
-    elif Tipo_Algoritmo == 'Merge':
-        start_time = time.process_time()
-        sorted_list = mrgs.sort(catalog['artworks'], cmpfunction=cmpArtworkByDateAcquired)
-        stop_time = time.process_time()
-        elapsed_time_mseg = (stop_time - start_time)*1000
-
-    elif Tipo_Algoritmo == 'Quick Sorts':
-        start_time = time.process_time()
-        sorted_list = qcks.sort(catalog['artworks'], cmpfunction=cmpArtworkByDateAcquired)
-        stop_time = time.process_time()
-        elapsed_time_mseg = (stop_time - start_time)*1000
-    
-    return elapsed_time_mseg
-
 def ordenamiento_artist_AI(catalog):
-    sorted_list = mrgs.sort(catalog['artist']["BeginDate"])
-    return sorted_list
+    sorted_list = mrgs.sort(catalog['artist'], cmpfunction=cmpA_I)
+    return sorted_list   
 
-def ordenamiento_artist_AFN(catalog):
-    sorted_list = mrgs.sort((catalog['artist']["BeginDate"]))
-    return sorted_list       
+def ordenamiento_artworks (catalog):
+    sorted_list = mrgs.sort(catalog['artworks'], cmpfunction=cmpArtworkByDateAcquired)
+    return sorted_list 

@@ -32,8 +32,8 @@ El controlador se encarga de mediar entre la vista y el modelo.
 """
 
 # Inicialización del Catálogo de libros
-def initCatalog(Tipo_Arreglo):
-    catalog = model.newCatalog(Tipo_Arreglo)
+def initCatalog():
+    catalog = model.newCatalog()
     return catalog
 
 
@@ -58,20 +58,14 @@ def loadArtworks (catalog):
 
 # Funciones de ordenamiento
 
-def AlgoritmoIterativo (Tipo_Algoritmo, catalog):
-    Algoritmo = model.AlgoritmoIterativo (Tipo_Algoritmo, catalog)
-    return Algoritmo
-
 def listar_artist_date(A_I , A_FN, catalog):
-    Algoritmo = model.ordenamiento_artist_AI (catalog)
+    Algoritmo = model.listar_artist_date (A_I, A_FN, catalog)
     return Algoritmo
 
+def listar_artwork_date (F_I, F_FN, catalog):
+    Algoritmo = model.listar_artwork_date (F_I, F_FN, catalog)
+    return Algoritmo
 
 
 # Funciones de consulta sobre el catálogo
-def subList(lst, pos, numelem):
-    try:
-        return lt.subList(lst, pos, numelem)
-    except Exception as exp:
-        error.reraise(exp, 'List->subList: ')
 
