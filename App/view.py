@@ -62,6 +62,7 @@ while True:
         print('Artistas cargados: ' + str(lt.size(catalog['artist'])))
         print('Obras cargadas: ' + str(lt.size(catalog['artworks'])))
 
+
     elif int(inputs[0]) == 2:
         A_I = input ("Ingresa el año inicial: ")
         A_FN = input ("Ingresa el año final: ")
@@ -81,7 +82,6 @@ while True:
     elif int(inputs[0]) == 4:
         Name = input ("Ingresa el nombre del artista: ")
         l_t= controller.l(Name,catalog)
-        
         print("Obras de un artista por técnica: ")
         print(l_t)
         

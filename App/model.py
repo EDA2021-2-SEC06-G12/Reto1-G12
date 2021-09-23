@@ -220,6 +220,7 @@ def Ordenar_lista (Lista_final):
                     lista.append (j)
     return lista
 
+
 def l(Name,catalog):
     lista_tecnicas=[]
     lista_ide=[]
@@ -240,8 +241,7 @@ def l(Name,catalog):
              
                 if obra not in lista_datos_t:
                     lista_datos_t.append(obra)
-            
-           
+        
     t_tec=len(lista_tecnicas)
     t_dat=len(lista_datos_t)
     respuesta= "Total de tecnicas es: " , t_tec ,"Total de obras es :", t_dat
