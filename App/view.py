@@ -50,8 +50,6 @@ def loadData(catalog):
     controller.loadData(catalog)
 
 catalog = None
-
-
 """
 Menu principal
 """
@@ -83,8 +81,12 @@ while True:
 
     elif int(inputs[0]) == 4:
         Name = input ("Ingresa el nombre del artista: ")
+        l_t= controller.l(Name,catalog)
+        
         print("Obras de un artista por técnica: ")
-
+        print(l_t)
+        
+       
     elif int(inputs[0]) == 5:
         print("Obras por la nacionalidad de sus creadores: ")
         lista = controller.Nacionalidad(catalog)

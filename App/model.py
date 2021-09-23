@@ -245,7 +245,7 @@ def Buscar_artistas (artistas, catalog):
     for i in artistas:
         for j in catalog_2 ['ConstituentID']:
             if i == j:
-                nombres.append(['DisplayName'])
+                nombres.append(catalog_2['DisplayName'])
     return nombres
 
 # Funciones de ordenamiento
@@ -257,3 +257,4 @@ def ordenamiento_artist_AI(catalog):
 def ordenamiento_artworks (catalog):
     sorted_list = mrgs.sort(catalog['artworks'], cmpfunction=cmpArtworkByDateAcquired)
     return sorted_list 
+
