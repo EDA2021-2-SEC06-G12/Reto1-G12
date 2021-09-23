@@ -150,6 +150,79 @@ def listar_artwork_date(F_I, F_FN, catalog):
     
     return list_date, contador
 
+def Nacionalidad(catalog):
+    Lista_final = []
+    nacionalidades_f = []
+    nacionalidades = []
+    artistas = catalog ['artist']['elements']
+    obras = catalog ['artworks']['elements']
+    Ids = []
+    for obra in obras:
+        Id = obra['ConstituentID']
+        Id = Id.replace('[', '').replace(']', '').replace(' ', '')
+        Id = Id.split(',')
+        Ids.append(Id)
+    for i in Ids:
+        for j in i:
+            for artista in artistas:
+                if (artista['ConstituentID'] == j):
+                    nacionalidades.append(artista['Nationality'])
+                    for k in nacionalidades:
+                        if k not in nacionalidades_f:
+                            nacionalidades_f.append (k)
+    
+    for h in nacionalidades_f:
+        if h == '' or h == 'Nationality unknown':
+            frecuencia = nacionalidades.count ('') + nacionalidades.count ('Nationality unknown')
+            tupla = 'Unknown', frecuencia
+            Lista_final.append(tupla)
+            nacionalidades_f.remove('')
+            nacionalidades_f.remove('Nationality unknown')
+        else:
+            frecuencia = nacionalidades.count (h)
+            tupla = h, frecuencia
+            Lista_final.append(tupla)
+    
+    Lista = Ordenar_lista (Lista_final)
+
+    Lista_1 = MayorNacionalidad (Lista [::-1], catalog)
+    
+    return Lista [::-1], Lista_1
+
+def MayorNacionalidad (lista, catalog):
+    obra_nacionalidad = []
+    nacionalidad = lista [0][0]
+    obras = catalog ['artworks']['elements']
+    artistas = catalog ['artist']['elements']
+    for artista in artistas:
+        if (artista['Nationality'] == nacionalidad):
+            nombre = artista ['DisplayName']
+            ide = artista ['ConstituentID']
+            for obra in obras:
+                if ide in obra ['ConstituentID']:
+                    obra_nacionalidades = [obra['Title'], nombre, obra['Date'], obra['Medium'], obra['Dimensions']]
+                    obra_nacionalidad.append (obra_nacionalidades)
+
+    return obra_nacionalidad
+
+
+def Ordenar_lista (Lista_final):
+    lista = []
+    frec = []
+    for i in Lista_final:
+        frec.append (i[1])
+        frec.sort ()
+
+    for k in frec:
+        for j in Lista_final:
+            if j [1] == k:
+                if j not in lista:
+                    lista.append (j)
+    return lista
+
+
+
+
 # Funciones utilizadas para comparar elementos dentro de una lista
 def cmpArtworkByDateAcquired(artwork1, artwork2):
     if artwork1["DateAcquired"] < artwork2["DateAcquired"]:

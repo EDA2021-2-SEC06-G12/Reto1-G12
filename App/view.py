@@ -41,8 +41,7 @@ def printMenu():
     print("4- Clasificar las obras de un artista por técnica")
     print("5- Clasificar las obras por la nacionalidad de sus creadores")
     print("6- Transportar obras de un departamento")
-    print("7- Proponer una nueva exposición en el museo")
-    print("8- Salir del Menu")
+    print("7- Salir del Menu")
 
 def initCatalog():
     return controller.initCatalog()
@@ -88,18 +87,16 @@ while True:
 
     elif int(inputs[0]) == 5:
         print("Obras por la nacionalidad de sus creadores: ")
+        lista = controller.Nacionalidad(catalog)
+        print("El top 10 de Nacionalidades registradas es:", lista [0][0:10])
+        print("Las primeras 3 obras dentro de la Nacionalidad más frecuente son:", lista[1][0], lista[1][1], lista[1][3])
+        print("Las últimas 3 obras dentro de la Nacionalidad más frecuente son:", lista[1][len(lista[1])-1], lista[1][len(lista[1])-2], lista[1][len(lista[1])-3])
 
     elif int(inputs[0]) == 6:
         DEP = input("Ingresa el departamento a consultar: ")
         print("Costo de transporte: ")
 
-    elif int(inputs[0]) == 7:
-        A_IO = input("Ingresa el año inicial de las obras: ")
-        A_FO = input("Ingresa el año final de las obras: ")
-        Area_D = input("Ingresa el área disponible: ")
-        print("Propuesta de una nueva exposición:  ")
-
     else:
-        sys.exit(8)
-sys.exit(8)
+        sys.exit(7)
+sys.exit(7)
 

@@ -69,3 +69,6 @@ def listar_artwork_date (F_I, F_FN, catalog):
 
 # Funciones de consulta sobre el catálogo
 
+def Nacionalidad(catalog):
+    Algoritmo = model.Nacionalidad(catalog)
+    return Algoritmo
