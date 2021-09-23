@@ -72,11 +72,15 @@ def clasificar_obras_tecnica(Name , catalog):
 
 
 
-def l(Name,catalog):
-    Algoritmo = model.l(Name,catalog)
+def clasificar_obras_tecnica(Name , catalog):
+    Algoritmo = model.clasificar_obras_tecnica(Name , catalog)
     return Algoritmo
 
 
+
+def l(Name,catalog):
+    Algoritmo = model.l(Name,catalog)
+    return Algoritmo
 
 
 # Funciones de consulta sobre el catálogo

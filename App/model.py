@@ -220,7 +220,33 @@ def Ordenar_lista (Lista_final):
                     lista.append (j)
     return lista
 
+def l(Name,catalog):
+    lista_tecnicas=[]
+    lista_ide=[]
+    lista_datos_t= []
+    contador = 0
+    
+    for artista in catalog["artist"]["elements"]:
+        if Name in  artista["DisplayName"]:
+            ide= artista["ConstituentID"]
+            lista_ide.append(ide)
+    for obra in catalog["artworks"]["elements"]:
+        for ide in lista_ide:
+            if ide in obra["ConstituentID"]:
+                tecnica = obra["Medium"]
+                obra= obra["ObjectID"]
+                if tecnica not in lista_tecnicas:
+                    lista_tecnicas.append(tecnica)
+             
+                if obra not in lista_datos_t:
+                    lista_datos_t.append(obra)
+            
+           
+    t_tec=len(lista_tecnicas)
+    t_dat=len(lista_datos_t)
+    respuesta= "Total de tecnicas es: " , t_tec ,"Total de obras es :", t_dat
 
+    return respuesta
 
 
 # Funciones utilizadas para comparar elementos dentro de una lista
